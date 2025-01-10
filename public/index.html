@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <div class="flipbook">
+  <div id="flipbook">
     <div class="hard">My Pokemon Gallery <small>~ HankTheTank</small></div>
     <div class="hard"></div>
     <div>
@@ -40,10 +40,19 @@
     <div class="hard">Thank You <small>~ HankTheTank</small></div>
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="/js/turn.js"></script>
   <script>
-    $(".flipbook").turn();
+    $("#flipbook").turn();
+    $(window).bind('keydown', function (e) {
+      if (e.target && e.target.tagName.toLowerCase() != 'input')
+        if (e.keyCode == 37)
+          $('#flipbook').turn('previous');
+        else if (e.keyCode == 39)
+          $('#flipbook').turn('next');
+    });
   </script>
 </body>
 
